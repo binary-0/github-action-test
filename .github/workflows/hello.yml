@@ -1,0 +1,22 @@
+name: Heukma git actions
+on:
+   # push:
+   #    branches:
+   #       - 'master'
+   workflow_dispatch:
+      inputs:
+         AccessToken:
+            description: "Access token of your blog"
+            required: true
+            default: ''
+            
+jobs:
+   Heukma-Action:
+      runs-on: ubuntu-latest
+      steps:       
+         - name: Uploader
+           uses: binary-0/Automatic-Tistory-Uploader@Read-Readme.md
+           with:
+              Accesstoken: "${{ github.event.inputs.AccessToken }}"
+              BlogName: "Binary-Zero"
+              GithubToken: "${{ secrets.GITHUB_TOKEN }}"
