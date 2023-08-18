@@ -4,11 +4,6 @@ on:
    #    branches:
    #       - 'master'
    workflow_dispatch:
-      inputs:
-         AccessToken:
-            description: "Access token of your blog"
-            required: true
-            default: ''
             
 jobs:
    Heukma-Action:
@@ -17,6 +12,6 @@ jobs:
          - name: Uploader
            uses: binary-0/Automatic-Tistory-Uploader@Read-Readme.md
            with:
-              Accesstoken: "${{ github.event.inputs.AccessToken }}"
+              Accesstoken: "${{ secrets.BLOG_ACCESS_TOKEN }}"
               BlogName: "Binary-Zero"
               GithubToken: "${{ secrets.GITHUB_TOKEN }}"
